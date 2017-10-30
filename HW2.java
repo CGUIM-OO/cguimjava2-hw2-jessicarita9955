@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * @author TODO: please add student ID and name here
+ * B0344135 ���۽@
  * Try to write some comments for your codes (methods, 15 points)
  */
 public class HW2 {
@@ -26,8 +27,8 @@ public class HW2 {
 	}
 	/**
 	 * This method is used for checking your result, not a part of your HW2
-	 * @param allCards 所有的牌
-	 * @param nDeck 總共有幾副牌
+	 * @param allCards 
+	 * @param nDeck
 	 * @return
 	 */
 	private static boolean isAllCardsCorrect(ArrayList<Card> allCards,int nDeck){
@@ -71,17 +72,32 @@ class Deck{
 	//TODO: Please implement the constructor (30 points)
 	public Deck(int nDeck){
 		cards=new ArrayList<Card>();
+		for(int x=0; x<nDeck; x++) {
+			for(int y=1; y<=4; y++) {
+				for(int z=1; z<=13; z++) {
+					//System.out.prinln(y+","+k);
+					Card card = new Card(y, z);
+					cards.add(card);					
+				}
+			}
+		}
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
 		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
 		//Sample code start
 		//Card card=new Card(1,1); ->means new card as clubs ace
 		//cards.add(card);
 		//Sample code end
+		
 
 	}	
 	//TODO: Please implement the method to print all cards on screen (10 points)
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
+		for(int i=0; i<cards.size(); i++) {
+			Card printDeck = cards.get(i);
+			printDeck.printCard();			
+		}
+		System.out.println(cards.size());
 		//TODO: please implement and reuse printCard method in Card class (5 points)
 
 	}
@@ -104,9 +120,50 @@ class Card{
 		rank=r;
 	}	
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
+	
 	public void printCard(){
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
-
+		String Suit="";
+		String Rank="";
+		switch(suit) {
+			case 1: Suit="Clubs";
+			break;
+			case 2: Suit="Diamonds";
+			break;
+			case 3: Suit="Hearts";
+			break;
+			case 4: Suit="Spades";
+			break;			
+		}		
+		switch(rank) {
+			case 1: Rank="Ace";
+			break;
+			case 2: Rank="2";
+			break;
+			case 3: Rank="3";
+			break;
+			case 4: Rank="4";
+			break;
+			case 5: Rank="5";
+			break;
+			case 6: Rank="6";
+			break;
+			case 7: Rank="7";
+			break;
+			case 8: Rank="8";
+			break;
+			case 9: Rank="9";
+			break;
+			case 10: Rank="10";
+			break;
+			case 11: Rank="J";
+			break;
+			case 12: Rank="Q";
+			break;
+			case 13: Rank="K";
+			break;
+		}
+		System.out.println(Suit+","+Rank);
 	}
 	public int getSuit(){
 		return suit;
